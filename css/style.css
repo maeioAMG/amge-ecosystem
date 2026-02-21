@@ -14,13 +14,13 @@ body {
 
     /* Rețea aurie fină */
     background-image:
-        linear-gradient(90deg, rgba(255,215,0,0.06) 1px, transparent 1px),
-        linear-gradient(rgba(255,215,0,0.06) 1px, transparent 1px);
-    background-size: 38px 38px;
+        linear-gradient(90deg, rgba(255,215,0,0.12) 1px, transparent 1px),
+        linear-gradient(rgba(255,215,0,0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
     background-attachment: fixed;
 }
 
-/* Linii aurii animate – versiune subțire și intensă */
+/* Linii aurii animate – ultra-subțiri și foarte vizibile */
 .circuit-lines {
     position: fixed;
     top: 0;
@@ -31,22 +31,22 @@ body {
 
     background: repeating-linear-gradient(
         90deg,
-        rgba(255,215,0,0.14) 0px,
-        rgba(255,215,0,0.14) 1px,
+        rgba(255,215,0,0.22) 0px,
+        rgba(255,215,0,0.22) 1px,
         transparent 1px,
-        transparent 95px
+        transparent 85px
     );
 
-    animation: moveLines 14s linear infinite;
-    opacity: 0.28;
+    animation: moveLines 12s linear infinite;
+    opacity: 0.38;
 }
 
 @keyframes moveLines {
     from { transform: translateX(0); }
-    to { transform: translateX(-220px); }
+    to { transform: translateX(-240px); }
 }
 
-/* CIRCUITE AURII RADIALE – subțiri, aur intens */
+/* CIRCUITE AURII RADIALE – versiune intensă, clară, subțire */
 .circuit-radial {
     position: fixed;
     top: 0;
@@ -57,17 +57,18 @@ body {
 
     background:
         radial-gradient(circle at center,
-            rgba(255,215,0,0.20) 0%,
-            rgba(255,215,0,0.10) 12%,
-            transparent 55%
+            rgba(255,215,0,0.28) 0%,
+            rgba(255,215,0,0.18) 10%,
+            rgba(255,215,0,0.08) 25%,
+            transparent 60%
         ),
         repeating-conic-gradient(
             from 0deg,
-            rgba(255,215,0,0.25) 0deg 0.8deg,
-            transparent 0.8deg 12deg
+            rgba(255,215,0,0.35) 0deg 0.6deg,
+            transparent 0.6deg 10deg
         );
 
-    opacity: 0.32;
+    opacity: 0.45;
     mix-blend-mode: screen;
 }
 
