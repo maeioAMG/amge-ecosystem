@@ -11,13 +11,55 @@ body {
     background-color: #000000;
     color: #ffffff;
     line-height: 1.6;
+    perspective: 1500px;
 
-    /* Rețea aurie foarte vizibilă */
     background-image:
         linear-gradient(90deg, rgba(255,215,0,0.25) 0.5px, transparent 0.5px),
         linear-gradient(rgba(255,215,0,0.25) 0.5px, transparent 0.5px);
     background-size: 28px 28px;
     background-attachment: fixed;
+}
+
+/* NAVBAR PREMIUM */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 9999;
+    border-bottom: 1px solid rgba(0,255,136,0.25);
+    box-shadow: 0 0 12px rgba(0,255,136,0.25);
+}
+
+.nav-logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
 }
 
 /* Linii aurii animate – ULTRA SUBȚIRI + FOARTE PRONUNȚATE */
@@ -70,12 +112,34 @@ body {
 
     opacity: 0.55;
     mix-blend-mode: screen;
+    transform: translateZ(-300px) scale(1.3);
 }
 
-/* HERO SECTION – LOGO SUS, CENTRAT */
+/* CIRCUITE DIAGONALE – STRAT 3 */
+.circuit-diagonal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255,215,0,0.35) 0px,
+        rgba(255,215,0,0.35) 0.5px,
+        transparent 0.5px,
+        transparent 60px
+    );
+
+    opacity: 0.35;
+    mix-blend-mode: screen;
+}
+
+/* HERO SECTION */
 .hero {
     text-align: center;
-    padding: 50px 20px 40px;
+    padding: 120px 20px 40px;
     background: radial-gradient(circle at top, #0b3b24 0%, #000000 60%);
 }
 
@@ -87,12 +151,18 @@ body {
     filter: drop-shadow(0 0 25px #00ff88);
 }
 
-/* TITLURI */
+/* TITLURI CU GLOW ENERGETIC */
 .hero h1 {
     font-size: 2rem;
     color: #ffffff;
     margin-bottom: 10px;
-    text-shadow: 0 0 12px #00ff88;
+    animation: pulseGlow 3s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 10px #00ff88; }
+    50% { text-shadow: 0 0 25px #00ff88; }
+    100% { text-shadow: 0 0 10px #00ff88; }
 }
 
 .hero h2 {
