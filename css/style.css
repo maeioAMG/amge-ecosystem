@@ -5,139 +5,115 @@
     box-sizing: border-box;
 }
 
-/* FUNDAL NEGRU + REȚEA AURIE FOARTE SUBTILĂ */
+/* FUNDAL NEGRU CU GRID EXTREM DE FIN */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: #000000;
     color: #ffffff;
     line-height: 1.6;
-    perspective: 1500px;
     overflow-x: hidden;
 
-    /* Liniile de fundal sunt acum la 5% opacitate (foarte fine) */
+    /* Linii de fundal tip retea - grosime 0.1px si opacitate foarte mica */
     background-image:
-        linear-gradient(90deg, rgba(255,215,0,0.05) 0.5px, transparent 0.5px),
-        linear-gradient(rgba(255,215,0,0.05) 0.5px, transparent 0.5px);
-    background-size: 35px 35px;
+        linear-gradient(90deg, rgba(255, 215, 0, 0.03) 0.1px, transparent 0.1px),
+        linear-gradient(rgba(255, 215, 0, 0.03) 0.1px, transparent 0.1px);
+    background-size: 45px 45px;
     background-attachment: fixed;
 }
 
-/* 1. CONTAINER LOGO SUS */
-.header-container {
-    padding: 50px 0 20px 0;
-    text-align: center;
-    background: black;
+/* CONFIGURARE ANTET (LOGO + INITIALE + NAV) */
+.main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px 20px 20px;
+    width: 100%;
+    background: transparent;
 }
 
+/* 1. LOGO */
 .top-logo img {
-    width: 180px; /* Dimensiune optimizată */
-    filter: drop-shadow(0 0 20px rgba(0,255,136,0.3));
+    width: 170px;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.2));
 }
 
+/* 2. INITIALE */
 .logo-initials {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: bold;
     color: #00ff88;
-    text-shadow: 0 0 10px rgba(0,255,136,0.6);
-    margin-top: 10px;
-    letter-spacing: 8px; /* Aspect elegant, aerisit */
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+    margin-top: 15px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
 }
 
-/* 2. NAVBAR (POZIȚIONAT SUB LOGO) */
-.navbar {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    border-bottom: 1px solid rgba(0,255,136,0.1);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+/* 3. NAVBAR (DOAR TEXTUL) */
+.navbar-minimal {
+    margin-top: 35px;
+    background: transparent; /* Eliminare totala fundal */
+    border: none;
+    box-shadow: none;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 40px;
+    gap: 30px;
 }
 
 .nav-links a {
     color: #ffffff;
-    font-size: 1rem;
     text-decoration: none;
+    font-size: 0.95rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+    opacity: 0.8;
 }
 
 .nav-links a:hover {
     color: #00ff88;
+    opacity: 1;
     text-shadow: 0 0 8px #00ff88;
 }
 
-/* 3. EFECTE AURII DIMINUATE (LINII SUBȚIRI) */
+/* EFECTE LINII BLOCKCHAIN - FF SUBTIRI */
 .circuit-lines {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none;
-    /* Linie de doar 0.3px și opacitate 10% */
+    z-index: -1;
     background: repeating-linear-gradient(
         90deg,
-        rgba(255,215,0,0.1) 0px,
-        rgba(255,215,0,0.1) 0.3px,
-        transparent 0.3px,
-        transparent 80px
+        rgba(255, 215, 0, 0.04) 0px,
+        rgba(255, 215, 0, 0.04) 0.1px, 
+        transparent 0.1px,
+        transparent 100px
     );
-    animation: moveLines 15s linear infinite;
-    opacity: 0.4;
-}
-
-@keyframes moveLines {
-    from { transform: translateX(0); }
-    to { transform: translateX(-160px); }
+    opacity: 0.5;
 }
 
 .circuit-radial {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none;
-    background:
-        radial-gradient(circle at center,
-            rgba(255,215,0,0.1) 0%,
-            transparent 70%
-        ),
-        repeating-conic-gradient(
-            from 0deg,
-            rgba(255,215,0,0.15) 0deg 0.2deg,
-            transparent 0.2deg 12deg
-        );
-    opacity: 0.3;
-    mix-blend-mode: screen;
+    z-index: -1;
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.05) 0%, transparent 75%);
 }
 
 .circuit-diagonal {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none;
+    z-index: -1;
     background: repeating-linear-gradient(
         45deg,
-        rgba(255,215,0,0.05) 0px,
-        rgba(255,215,0,0.05) 0.3px,
-        transparent 0.3px,
-        transparent 100px
+        rgba(255, 215, 0, 0.03) 0px,
+        rgba(255, 215, 0, 0.03) 0.1px,
+        transparent 0.1px,
+        transparent 120px
     );
 }
 
@@ -145,60 +121,60 @@ body {
 .hero {
     text-align: center;
     padding: 80px 20px;
-    background: radial-gradient(circle at top, #0b3b24 0%, #000000 70%);
+    background: radial-gradient(circle at top, rgba(11, 59, 36, 0.3) 0%, transparent 70%);
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    color: #ffffff;
+    font-size: 2.3rem;
     margin-bottom: 15px;
-    animation: pulseGlow 4s infinite ease-in-out;
-}
-
-@keyframes pulseGlow {
-    0% { text-shadow: 0 0 10px rgba(0,255,136,0.3); }
-    50% { text-shadow: 0 0 20px rgba(0,255,136,0.6); }
-    100% { text-shadow: 0 0 10px rgba(0,255,136,0.3); }
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .hero h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: #9be58a;
-    margin-bottom: 20px;
     font-weight: 300;
+    margin-bottom: 25px;
 }
 
 .hero-text {
-    max-width: 750px;
+    max-width: 700px;
     margin: 0 auto;
     color: #cccccc;
-    font-size: 1.1rem;
 }
 
-/* SECȚIUNI */
+/* SECTIUNI */
 .section {
     padding: 60px 20px;
     max-width: 900px;
     margin: 0 auto;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .section h2 {
-    font-size: 1.8rem;
     color: #9be58a;
     margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(0,255,136,0.2);
 }
 
-/* FOOTER */
 .footer {
     text-align: center;
     padding: 40px;
-    background: #050505;
-    border-top: 1px solid rgba(0,255,136,0.1);
-    color: #777;
+    color: #666;
+    border-top: 1px solid rgba(0, 255, 136, 0.1);
 }
 
+/* RESPONSIVE PENTRU MOBIL */
+@media (max-width: 600px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .logo-initials {
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+    }
+}
 
 
 
