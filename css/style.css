@@ -1,76 +1,69 @@
-/* RESET GENERAL */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* FUNDAL NEGRU CU GRID EXTREM DE FIN */
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background-color: #000000;
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
-
-    /* Linii de fundal tip retea - grosime 0.1px si opacitate foarte mica */
+    /* Linii fundal - Grosime minima (0.1px) */
     background-image:
-        linear-gradient(90deg, rgba(255, 215, 0, 0.03) 0.1px, transparent 0.1px),
-        linear-gradient(rgba(255, 215, 0, 0.03) 0.1px, transparent 0.1px);
-    background-size: 45px 45px;
-    background-attachment: fixed;
+        linear-gradient(90deg, rgba(255, 215, 0, 0.02) 0.1px, transparent 0.1px),
+        linear-gradient(rgba(255, 215, 0, 0.02) 0.1px, transparent 0.1px);
+    background-size: 60px 60px;
 }
 
-/* CONFIGURARE ANTET (LOGO + INITIALE + NAV) */
-.main-header {
+/* CONTAINERUL DE ANTET - FORȚEAZĂ CENTRAREA VERTICALĂ */
+.header-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 60px 20px 20px 20px;
+    flex-direction: column; /* Pune elementele unul sub altul */
+    align-items: center;    /* Le centreaza pe orizontala */
+    justify-content: center;
+    padding: 60px 20px 20px;
     width: 100%;
-    background: transparent;
 }
 
-/* 1. LOGO */
+/* 1. STIL LOGO */
 .top-logo img {
-    width: 170px;
+    width: 150px; 
     height: auto;
     filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.2));
 }
 
-/* 2. INITIALE */
+/* 2. STIL INITIALE */
 .logo-initials {
     font-size: 2.2rem;
     font-weight: bold;
     color: #00ff88;
-    text-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
-    margin-top: 15px;
-    letter-spacing: 10px;
-    text-transform: uppercase;
+    margin-top: 15px; /* Spatiu sub logo */
+    letter-spacing: 12px;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
 }
 
-/* 3. NAVBAR (DOAR TEXTUL) */
+/* 3. STIL NAVBAR (DOAR BUTOANELE) */
 .navbar-minimal {
-    margin-top: 35px;
-    background: transparent; /* Eliminare totala fundal */
-    border: none;
-    box-shadow: none;
+    margin-top: 30px; /* Spatiu sub initiale */
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 40px; /* Distanta intre butoane */
 }
 
 .nav-links a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: 0.3s ease;
-    opacity: 0.8;
+    transition: 0.3s;
+    opacity: 0.7;
 }
 
 .nav-links a:hover {
@@ -79,7 +72,7 @@ body {
     text-shadow: 0 0 8px #00ff88;
 }
 
-/* EFECTE LINII BLOCKCHAIN - FF SUBTIRI */
+/* LINII DECORATIVE - FF SUBTIRI */
 .circuit-lines {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -87,12 +80,11 @@ body {
     z-index: -1;
     background: repeating-linear-gradient(
         90deg,
-        rgba(255, 215, 0, 0.04) 0px,
-        rgba(255, 215, 0, 0.04) 0.1px, 
+        rgba(255, 215, 0, 0.03) 0px,
+        rgba(255, 215, 0, 0.03) 0.1px, 
         transparent 0.1px,
-        transparent 100px
+        transparent 150px
     );
-    opacity: 0.5;
 }
 
 .circuit-radial {
@@ -100,80 +92,23 @@ body {
     top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none;
     z-index: -1;
-    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.05) 0%, transparent 75%);
-}
-
-.circuit-diagonal {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(255, 215, 0, 0.03) 0px,
-        rgba(255, 215, 0, 0.03) 0.1px,
-        transparent 0.1px,
-        transparent 120px
-    );
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.03) 0%, transparent 80%);
 }
 
 /* HERO SECTION */
 .hero {
     text-align: center;
     padding: 80px 20px;
-    background: radial-gradient(circle at top, rgba(11, 59, 36, 0.3) 0%, transparent 70%);
 }
 
 .hero h1 {
-    font-size: 2.3rem;
-    margin-bottom: 15px;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
 .hero h2 {
-    font-size: 1.3rem;
     color: #9be58a;
     font-weight: 300;
-    margin-bottom: 25px;
-}
-
-.hero-text {
-    max-width: 700px;
-    margin: 0 auto;
-    color: #cccccc;
-}
-
-/* SECTIUNI */
-.section {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.section h2 {
-    color: #9be58a;
-    margin-bottom: 20px;
-}
-
-.footer {
-    text-align: center;
-    padding: 40px;
-    color: #666;
-    border-top: 1px solid rgba(0, 255, 136, 0.1);
-}
-
-/* RESPONSIVE PENTRU MOBIL */
-@media (max-width: 600px) {
-    .nav-links {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    .logo-initials {
-        font-size: 1.8rem;
-        letter-spacing: 5px;
-    }
 }
 
 
