@@ -12,7 +12,6 @@ body {
     color: #ffffff;
     line-height: 1.6;
 
-    /* Rețea aurie fină */
     background-image:
         linear-gradient(90deg, rgba(255,215,0,0.06) 1px, transparent 1px),
         linear-gradient(rgba(255,215,0,0.06) 1px, transparent 1px);
@@ -20,7 +19,7 @@ body {
     background-attachment: fixed;
 }
 
-/* Linii aurii animate – versiune subțire și intensă */
+/* Linii aurii animate */
 .circuit-lines {
     position: fixed;
     top: 0;
@@ -46,7 +45,7 @@ body {
     to { transform: translateX(-220px); }
 }
 
-/* CIRCUITE AURII RADIALE – subțiri, aur intens */
+/* CIRCUITE AURII RADIALE */
 .circuit-radial {
     position: fixed;
     top: 0;
@@ -71,7 +70,7 @@ body {
     mix-blend-mode: screen;
 }
 
-/* HERO SECTION – LOGO SUS, CENTRAT */
+/* HERO SECTION */
 .hero {
     text-align: center;
     padding: 50px 20px 40px;
@@ -151,6 +150,25 @@ a {
 a:hover {
     color: #9be58a;
     text-shadow: 0 0 10px #00ff88;
+}
+
+/* BUTON WHITEPAPER */
+.whitepaper-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #00ff88;
+    color: #000;
+    font-weight: bold;
+    border-radius: 6px;
+    text-shadow: none;
+    box-shadow: 0 0 12px #00ff88;
+    transition: 0.3s ease;
+}
+
+.whitepaper-btn:hover {
+    background: #9be58a;
+    box-shadow: 0 0 18px #00ff88;
+    color: #000;
 }
 
 
